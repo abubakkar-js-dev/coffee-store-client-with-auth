@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const SignUp = () => {
     const {createUser,setUser,loginWithGoogle} = useContext(AuthContext);
 
     const handleAuth = (method,userData,form='')=>{
         try{
-          fetch('http://localhost:5000/auth/signIn',{
+          fetch('https://coffee-store-server-seven-ashy.vercel.app/auth/signIn',{
             method: 'POST',
             headers: {
               'Content-type': 'application/json'

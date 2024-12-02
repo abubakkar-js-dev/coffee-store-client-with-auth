@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const Users = () => {
   const loadedUsers = useLoaderData();
-  const [users,setUsers] = useState(loadedUsers);
+  const [users,setUsers] = useState(loadedUsers || []);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -19,7 +19,7 @@ const Users = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete from the database
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://coffee-store-server-seven-ashy.vercel.app/users/${id}`, {
           method: "DELETE",
         })
           .then(res => res.json())
